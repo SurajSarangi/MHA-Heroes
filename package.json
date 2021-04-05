@@ -4,8 +4,13 @@
   "description": "A blog made with express, mongoDB and nodeJS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app",
+    "dev" : "nodemon app"
   },
   "author": "GreyKnight",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
