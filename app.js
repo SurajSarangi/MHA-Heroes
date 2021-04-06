@@ -8,7 +8,14 @@ app.set('view engine', 'ejs');
 app.listen(PORT, () => console.log(`Listening to requests on port ${PORT}`));
 
 app.get('/', (req, res) => {
-    res.render('index', { title : 'Home' });
+
+    const blogs = [
+        {hname: 'All Might', rname: 'Toshinori', quirk: 'One for All', status: 'Pro'},
+        {hname: 'Eraser', rname: 'Aizawa', quirk: 'Erasing quirks', status: 'Pro'},
+        {hname: 'Ingenium', rname: 'Ida', quirk: 'Nitro legs', status: 'Rookie'}
+    ];
+
+    res.render('index', { title : 'Home', blogs });
 });
 
 app.get('/about',(req,res)=>{
