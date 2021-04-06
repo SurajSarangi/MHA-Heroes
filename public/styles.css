@@ -48,6 +48,7 @@ nav a:hover{
     color: yellow;
 }
 footer{
+    color: yellow;
     text-align: center;
     margin: 80px auto 20px;
 }
@@ -82,10 +83,10 @@ h3{
 textarea{
     height: 120px;
 }
-.create-blog button{
+.add-hero button{
     margin-top: 20px;
-    background: crimson;
-    color: white;
+    background: blue;
+    color: yellow;
     padding: 6px;
     border: 0;
     font-size: 1.2em;
