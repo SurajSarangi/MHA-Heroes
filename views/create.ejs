@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UA High | <%= title %> </title>
+</head>
+<body>
+    <nav>
+        <div class="site-title">
+            <a href="/"><h1>My Hero Academia</h1></a>
+            <p>&copy; UA High</p>
+        </div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">Developer</a></li>
+            <li><a href="blogs/add">Add Hero</a></li>
+        </ul>
+    </nav>
+    
+    <div class="add-hero content">
+        <form>
+            <label for="name">Hero Name</label>
+            <input type="text" id="hname" required>
+
+            <label for="rname">Real Name</label>
+            <input type="text" id="rname" required>
+
+            <label for="quirt">Quirk</label>
+            <input type="text" id="quirk" value="If Any">
+
+            <label for="status">Status</label>
+            <input type="text" id="status" value="Pro">
+
+            <label for="body">Description</label>
+            <textarea id="body"></textarea>
+            <button>Submit</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,28 +1,22 @@
-const http = require('http');
-const fs = require('fs');
 const PORT = process.env.PORT || 3000 ;
 const express = require('express');
 
 const app = express();
 
-app.get('/', (req, res) => {
-    fs.readFile("./views/index.html", (err, data) => {
-        if(err){
-            res.statusCode=404;
-            res.setHeader("Content-Type" , "text/plain");
-            return res.end(`error : ${err.code}`);
-        } else {
-            res.statusCode=200;
-            res.setHeader("Content-type" , "text/html");
-            return res.end(data);
-        }
-    });
-});
-
-app.get('/:xy', (req,res) => {
-    res.statusCode=404;
-    res.setHeader("Content-Type" , "text/plain");
-    return res.end(`${req.url} path doesnt exist.`);
-})
+app.set('view engine', 'ejs');
 
 app.listen(PORT, () => console.log(`Listening to requests on port ${PORT}`));
+
+app.get('/', (req, res) => {
+    res.render('index', { title : 'Home' });
+});
+
+app.get('/about',(req,res)=>{
+    res.render('about', { title : "About" });
+});
+
+app.get('/blogs/add', (req,res)=>{
+    res.render('create', { title: "Add Hero" });
+});
+
+app.use((req,res) => res.status(404).render('404', { title : "404" }));
