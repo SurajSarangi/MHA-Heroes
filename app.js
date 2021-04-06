@@ -1,11 +1,16 @@
 const PORT = process.env.PORT || 3000 ;
 const express = require('express');
-
+const info = require('./info');
 const app = express();
 
 app.set('view engine', 'ejs');
 
 app.listen(PORT, () => console.log(`Listening to requests on port ${PORT}`));
+
+app.use((req,res,next) => {
+    info(req);
+    next();
+});
 
 app.get('/', (req, res) => {
 

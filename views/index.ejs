@@ -1,32 +1,20 @@
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UA High | <%= title %> </title>
-</head>
+<%- include('./partials/head.ejs') %> 
 <body>
-    <nav>
-        <div class="site-title">
-            <a href="/"><h1>My Hero Academia</h1></a>
-            <p>&copy; UA High</p>
-        </div>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">Developer</a></li>
-            <li><a href="blogs/add">Add Hero</a></li>
-        </ul>
-    </nav>
+    <%- include('./partials/nav.ejs') %> 
     
     <div class="blogs content">
         <h2>All heros</h2>
         <% if (blogs.length > 0) { %>
             <% blogs.forEach(element => { %>
                 <h3 class="hname"><%= element.hname %> </h3>
-                <p class="quirk"><%= element.quirk %> </p>
+                <div class="status">Status : <%= element.status %> </div>
+                <p class="quirk">Quirk : <%= element.quirk %> </p>
             <% }) %> 
         <% } else { %>
             <p>No Heros added</p>
         <% } %> 
     </div>
 </body>
+<%- include('./partials/footer.ejs') %> 
 </html>
