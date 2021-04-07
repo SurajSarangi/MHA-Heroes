@@ -4,22 +4,22 @@
     <%- include('./partials/nav.ejs') %> 
     
     <div class="add-hero content">
-        <form>
+        <form action="/heroes" method="POST">
             <label for="name">Hero Name</label>
-            <input type="text" id="hname" required>
+            <input type="text" id="hname" name="hname" required>
 
             <label for="rname">Real Name</label>
-            <input type="text" id="rname" required>
+            <input type="text" id="rname" name="rname" required>
 
-            <label for="quirk">Quirk</label>
-            <input type="text" id="quirk" value="If Any">
+            <label for="quirk">Quirk (leave if None)</label>
+            <input type="text" id="quirk" name="quirk" value="None">
 
             <label for="status">Status</label>
             <label for="status" class="radio"> <input class="radio" type="radio" name="status" value="Pro">Pro </label>
             <label for="status" class="radio"> <input class="radio" type="radio" name="status" value="Rookie">Rookie </label>
 
             <label for="body">Description</label>
-            <textarea id="body"></textarea>
+            <textarea id="body" name="body"></textarea>
             <button>Submit</button>
         </form>
     </div>

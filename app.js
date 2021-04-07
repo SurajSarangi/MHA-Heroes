@@ -20,6 +20,7 @@ app.use((req,res,next) => {
 });
 
 app.use(express.static('./public'));
+app.use( express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
     Hero.find().sort({ createdAt:-1 })
@@ -35,6 +36,13 @@ app.get('/about',(req,res)=>{
 
 app.get('/heroes/add', (req,res)=>{
     res.render('create', { title: "Add Hero" });
+});
+
+app.post('/heroes', (req,res) => {
+    const hero = new Hero(req.body)
+    hero.save()
+        .then(() => res.redirect('/'))
+        .catch(err => console.log(err));
 });
 
 app.use((req,res) => res.status(404).render('404', { title : "404" }));
