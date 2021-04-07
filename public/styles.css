@@ -83,6 +83,11 @@ h3{
 textarea{
     height: 120px;
 }
+.add-hero .radio{
+    display: inline;
+    width: auto;
+    margin-right: 10px;
+}
 .add-hero button{
     margin-top: 20px;
     background: blue;
