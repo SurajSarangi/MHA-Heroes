@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Lobster');
+
 body{
     max-width: 1200px;
     margin: 20px auto;
@@ -15,6 +16,7 @@ p, h1, h2, h3, a, ul{
     padding: 0;
     text-decoration: none;
 }
+
 /* nav & footer styles */
 nav{
     display: flex;
@@ -62,8 +64,22 @@ h3{
 .content{
     margin-left: 20px;
 }
+
 /* index styles */
+.heroes a{
+    display: block;
+    margin: 40px 0;
+    padding-left: 30px;
+    border-left: 6px solid yellow;
+    color: white;
+  }
+.heroes a:hover h3{
+    color: red;
+    text-shadow: -1px 0 yellow;
+}
+
 /* details styles */
+
 /* create styles */
 .add-hero form{
     max-width: 400px;

@@ -45,4 +45,13 @@ app.post('/heroes', (req,res) => {
         .catch(err => console.log(err));
 });
 
+app.get('/heroes/:id', (req,res) => {
+    const id = req.params.id;
+    Hero.findById(id)
+        .then(result => {
+            res.render('details', { title : result.hname, hero : result });
+        })
+        .catch(err => console.log(err));
+});
+
 app.use((req,res) => res.status(404).render('404', { title : "404" }));
