@@ -9,8 +9,7 @@
             <% heroes.forEach(element => { %>
                 <a class="single" href="/heroes/<%= element.id %>">
                     <h3 class="hname"><%= element.hname %> </h3>
-                    <div class="status">Status : <%= element.status %> </div>
-                    <p class="quirk">Quirk : <%= element.quirk %> </p>
+                    <p class="quirk">Quirk : <span><%= element.quirk %></span> </p>
                 </a>
             <% }) %> 
         <% } else { %>

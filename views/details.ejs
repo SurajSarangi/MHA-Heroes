@@ -5,16 +5,32 @@
     <div class="details content">
         <h2><%= hero.hname %> </h2>
         <div class="content">
-            <div>Status : <%= hero.status %> </div>
-            <p>Quirk : <%= hero.quirk %> </p>
+            <div>Status : <span><%= hero.status %></span> </div>
+            <p class="quirk">Quirk : <span><%= hero.quirk %></span> </p>
             <% if (hero.body.length > 0) { %>
                 <p><%= hero.body %> </p>
             <% } else { %>
                 <p>No description Available</p>
             <% } %> 
-            <p></p>
+            <a class="delete" data-doc="<%= hero.id %>">Delete</a>
         </div>
     </div>
 </body>
-<%- include('./partials/footer.ejs') %> 
+<%- include('./partials/footer.ejs') %>
+<script>
+    const trash = document.querySelector('a.delete');
+
+    trash.addEventListener('click', (e) => {
+        const endpoint = `/heroes/${trash.dataset.doc}`;
+    
+        const fet = async(endpoint) => {
+            const res = await fetch(endpoint, { method : 'DELETE' });
+            return res.json();
+        }
+        
+        fet(endpoint)
+            .then((data)=> window.location.href = data.redirect)
+            .catch(err => console.log(err));
+    })
+</script>
 </html>

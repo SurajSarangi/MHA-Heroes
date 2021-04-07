@@ -54,4 +54,13 @@ app.get('/heroes/:id', (req,res) => {
         .catch(err => console.log(err));
 });
 
+app.delete('/heroes/:id', (req,res) => {
+    const id = req.params.id;
+    Hero.findByIdAndDelete(id)
+        .then(result => {
+            res.json({ redirect: '/' });
+        })
+        .catch(err => console.log(err));
+});
+
 app.use((req,res) => res.status(404).render('404', { title : "404" }));

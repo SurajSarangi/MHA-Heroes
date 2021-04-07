@@ -77,9 +77,25 @@ h3{
     color: red;
     text-shadow: -1px 0 yellow;
 }
+span{
+    color: aqua;
+}
 
 /* details styles */
-
+.details{
+    position: relative;
+}
+.delete{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    padding: 8px;
+}
+.delete:hover{
+    cursor: pointer;
+    box-shadow: 1px 2px 3px #BBB;
+}
 /* create styles */
 .add-hero form{
     max-width: 400px;
