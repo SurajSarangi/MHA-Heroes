@@ -81,6 +81,11 @@ span{
     color: aqua;
 }
 
+/* about styles */
+.about p{
+    margin: 20px 0;
+}
+
 /* details styles */
 .details{
     position: relative;
