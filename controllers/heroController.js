@@ -25,7 +25,7 @@ const hero_details = (req, res) => {
         .then(result => {
             res.render('details', { title : result.hname, hero : result });
         })
-        .catch(err => console.log(err));
+        .catch(err => res.render('404', { title : 'Not Found' }));
 };
 
 const hero_delete = (req, res) => {
