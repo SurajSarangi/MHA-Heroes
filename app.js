@@ -2,7 +2,7 @@ const PORT = process.env.PORT || 3000 ;
 const express = require('express');
 const info = require('./info');
 const mongoose = require('mongoose');
-const Hero = require('./models/hero');
+const routes = require('./routes/heroRoutes');
 
 const app = express();
 
@@ -22,45 +22,6 @@ app.use((req,res,next) => {
 app.use(express.static('./public'));
 app.use( express.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => {
-    Hero.find().sort({ createdAt:-1 })
-    .then((result) => {
-        res.render('index', { title : 'Home', heroes : result });
-    })
-    .catch(err => console.log(err));
-});
-
-app.get('/about',(req,res)=>{
-    res.render('about', { title : "About" });
-});
-
-app.get('/heroes/add', (req,res)=>{
-    res.render('create', { title: "Add Hero" });
-});
-
-app.post('/heroes', (req,res) => {
-    const hero = new Hero(req.body)
-    hero.save()
-        .then(() => res.redirect('/'))
-        .catch(err => console.log(err));
-});
-
-app.get('/heroes/:id', (req,res) => {
-    const id = req.params.id;
-    Hero.findById(id)
-        .then(result => {
-            res.render('details', { title : result.hname, hero : result });
-        })
-        .catch(err => console.log(err));
-});
-
-app.delete('/heroes/:id', (req,res) => {
-    const id = req.params.id;
-    Hero.findByIdAndDelete(id)
-        .then(result => {
-            res.json({ redirect: '/' });
-        })
-        .catch(err => console.log(err));
-});
+app.use(routes);
 
 app.use((req,res) => res.status(404).render('404', { title : "404" }));
