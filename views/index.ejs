@@ -7,7 +7,7 @@
         <h2>All heros</h2>
         <% if (heroes.length > 0) { %>
             <% heroes.forEach(element => { %>
-                <a class="single" href="/heroes/<%= element.id %>">
+                <a class="<%= element.status %> " href="/heroes/<%= element.id %>">
                     <h3 class="hname"><%= element.hname %> </h3>
                     <p class="quirk">Quirk : <span><%= element.quirk %></span> </p>
                 </a>

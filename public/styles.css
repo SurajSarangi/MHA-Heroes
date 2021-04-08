@@ -70,9 +70,14 @@ h3{
     display: block;
     margin: 40px 0;
     padding-left: 30px;
-    border-left: 6px solid yellow;
     color: white;
-  }
+}
+.heroes a.Rookie{
+    border-left: 6px solid yellowgreen;
+}
+.heroes a.Pro{
+    border-left: 6px solid crimson;
+}
 .heroes a:hover h3{
     color: red;
     text-shadow: -1px 0 yellow;
