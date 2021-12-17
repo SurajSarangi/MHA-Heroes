@@ -6,7 +6,7 @@ const routes = require('./routes/heroRoutes');
 
 const app = express();
 
-const dbURI = 'mongodb+srv://greyKnight:1234@node-ninja.6awgg.gcp.mongodb.net/db1?retryWrites=true&w=majority'
+const dbURI = 'mongodb+srv://greyKnight:mongo123@node-ninja.6awgg.gcp.mongodb.net/db1?retryWrites=true&w=majority'
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(result => app.listen(PORT, () => console.log(`Listening to requests on port ${PORT}`)))
     .catch(err => console.log(err,'\n'));
